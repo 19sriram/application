@@ -66,3 +66,10 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+### Plans
+
+1) Added common form for open sourcing
+2) Might be integrating with test mode payment gateway to ease off usage
+3) Might add SMS gateway facility also
