@@ -35,7 +35,7 @@ export default class MainForm extends React.Component<{}, { current: any, firstS
     }
     onValueChange = (evt:any)=> {
         console.info(evt);
-        if(evt==='class2') {
+        if(evt==='class11') {
             this.setState ({
                 showElective: true
             })
@@ -128,8 +128,20 @@ export default class MainForm extends React.Component<{}, { current: any, firstS
                                         rules={[{ required: true, message: 'Please select class in which admission is sought' }]}
                                     >
                                         <Select placeholder="Please select a class" onChange={this.onValueChange.bind(this)}>
-                                            <Option value="class1">Class 1</Option>
-                                            <Option value="class2">Class 2</Option>
+                                            <Option value="class1">Pre School</Option>
+                                            <Option value="juniorkg">Junior KG</Option>
+                                            <Option value="seniorkg">Senior KG</Option>
+                                            <Option value="class1">Grade 1</Option>
+                                            <Option value="class2">Grade 2</Option>
+                                            <Option value="class3">Grade 3</Option>
+                                            <Option value="class4">Grade 4</Option>
+                                            <Option value="class5">Grade 5</Option>
+                                            <Option value="class6">Grade 6</Option>
+                                            <Option value="class7">Grade 7</Option>
+                                            <Option value="class8">Grade 8</Option>
+                                            <Option value="class9">Grade 9</Option>
+                                            <Option value="class10">Grade 10</Option>
+                                            <Option value="class11">Grade 11</Option>
                                         </Select>
                                     </Form.Item>
                                 </Col>
@@ -137,9 +149,9 @@ export default class MainForm extends React.Component<{}, { current: any, firstS
                                 <Col span={24} style={style} >
                                     <Form.Item name={['user', 'electivesubject']} label="Choose elective subject" rules={[{ required: true }]}>
                                         <Select>
-                                            <Select.Option value="elective1">test1</Select.Option>
-                                            <Select.Option value="elective2">test2</Select.Option>
-                                            <Select.Option value="elective3">test3</Select.Option>
+                                            <Select.Option value="elective1">Maths, Physics, Chemistry, Biology</Select.Option>
+                                            <Select.Option value="elective2">Maths, Physics, Chemistry, Computer Science</Select.Option>
+                                            <Select.Option value="elective3">Accountancy, Business Studies, Economics, Computer Science</Select.Option>
                                         </Select>
                                     </Form.Item>
 
@@ -156,7 +168,7 @@ export default class MainForm extends React.Component<{}, { current: any, firstS
                                     </Form.Item>
                                 </Col>
                                 <Col span={12} style={style}>
-                                    <Form.Item name={['user', 'board']} label="Name of Board" rules={[{ required: true }]}>
+                                    <Form.Item name={['user', 'board']} label="Name of Board where studied" rules={[{ required: true }]}>
                                         <Select>
                                             <Select.Option value="cbse">CBSE</Select.Option>
                                             <Select.Option value="stateboard">State Board</Select.Option>

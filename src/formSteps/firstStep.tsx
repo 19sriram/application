@@ -90,7 +90,7 @@ export const FirstStep = () => {
                         <Radio value="elective3">Accountancy, Business studies, Economics, Computer science</Radio>
                     </Radio.Group>
                 </Form.Item>
-                <Form.Item name={['user', 'board']} label="Name of Board">
+                <Form.Item name={['user', 'board']} label="Name of Board studied on">
                     <Radio.Group>
                         <Radio value="board1">CBSE</Radio>
                         <Radio value="board2">State Board</Radio>
