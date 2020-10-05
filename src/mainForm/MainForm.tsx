@@ -168,7 +168,7 @@ export default class MainForm extends React.Component<{}, { current: any, firstS
                                     </Form.Item>
                                 </Col>
                                 <Col span={12} style={style}>
-                                    <Form.Item name={['user', 'board']} label="Name of Board where studied" rules={[{ required: true }]}>
+                                    <Form.Item name={['user', 'board']} label="Name of Board last studied" rules={[{ required: true }]}>
                                         <Select>
                                             <Select.Option value="cbse">CBSE</Select.Option>
                                             <Select.Option value="stateboard">State Board</Select.Option>
