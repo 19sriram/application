@@ -36,12 +36,9 @@ export default class MainForm extends React.Component<{}, { current: any, firstS
         this.formRef = React.createRef();
     }
     onValueChange = (evt:any)=> {
-        console.info(evt);
-        if(evt==='class11') {
-            this.setState ({
-                showElective: true
-            })
-        }
+        this.setState({
+            showElective: evt==='class11'?true:false
+        })
         
     }
     onFinish = (values: any) => {
@@ -93,13 +90,13 @@ export default class MainForm extends React.Component<{}, { current: any, firstS
 
                             <Row>
                                 <Col span={11} style={style} className="gutter-row">
-                                    <Form.Item name={['user', 'name']} label="Name of Child" extra={'**Note**: (As in Birth Certificate)'} rules={[{ required: false }]}>
+                                    <Form.Item name={['user', 'name']} initialValue='' label="Name of Child" extra={'**Note**: (As in Birth Certificate)'} rules={[{ required: false }]}>
                                         <Input />
                                     </Form.Item>
                                 </Col>
 
                                 <Col style={style} className="gutter-row" offset={1} span={11}>
-                                    <Form.Item name={['user', 'dateofbirth']} label="Date Of Birth" rules={[{ required: false }]}>
+                                    <Form.Item name={['user', 'dateofbirth']} initialValue='' label="Date Of Birth" rules={[{ required: false }]}>
                                         <DatePicker  format={'DD-MM-YYYY'}/>
                                     </Form.Item>
                                 </Col>
@@ -110,17 +107,17 @@ export default class MainForm extends React.Component<{}, { current: any, firstS
 
                             <Row>
                                 <Col span={8} style={style}>
-                                    <Form.Item name={['user', 'aadharno']} label="AADHAR Number" rules={[{ required: false }]} >
+                                    <Form.Item name={['user', 'aadharno']}  initialValue='' label="AADHAR Number" rules={[{ required: false }]} >
                                         <Input />
                                     </Form.Item>
                                 </Col>
                                 <Col span={8} style={style}>
-                                    <Form.Item name={['user', 'placeofbirth']} label="Place Of Birth">
+                                    <Form.Item name={['user', 'placeofbirth']} initialValue=''  label="Place Of Birth">
                                         <Input />
                                     </Form.Item>
                                 </Col>
                                 <Col span={8} style={style}>
-                                    <Form.Item name={['user', 'mothertongue']} label="Mother Tongue">
+                                    <Form.Item name={['user', 'mothertongue']} initialValue='' label="Mother Tongue">
                                         <Input />
                                     </Form.Item>
                                 </Col>
@@ -128,7 +125,7 @@ export default class MainForm extends React.Component<{}, { current: any, firstS
 
                             <Row>
                                 <Col span={12} style={style}>
-                                    <Form.Item name={['user', 'gender']} label="Choose Gender">
+                                    <Form.Item name={['user', 'gender']} initialValue='' label="Choose Gender">
                                         <Select>
                                             <Select.Option value="male">Male</Select.Option>
                                             <Select.Option value="female">Female</Select.Option>
@@ -137,7 +134,7 @@ export default class MainForm extends React.Component<{}, { current: any, firstS
                                 </Col>
                                 <Col span={12} style={style}>
                                     <Form.Item
-                                        name={['user', 'admissionclass']}
+                                        name={['user', 'admissionclass']} initialValue=''
                                         label="Select Class for admission"
                                         hasFeedback
                                         rules={[{ required: false, message: 'Please select class in which admission is sought' }]}
@@ -160,10 +157,10 @@ export default class MainForm extends React.Component<{}, { current: any, firstS
                                         </Select>
                                     </Form.Item>
                                 </Col>
-                                { this.state.showElective && (
+                                
                                 <Col span={24} style={style} >
-                                    <Form.Item name={['user', 'electivesubject']} label="Choose elective subject" rules={[{ required: false }]}>
-                                        <Select>
+                                    <Form.Item name={['user', 'electivesubject']}  initialValue='' label="Choose elective subject" rules={[{ required: false }]}>
+                                        <Select disabled={!this.state.showElective}>
                                             <Select.Option value="elective1">Maths, Physics, Chemistry, Biology</Select.Option>
                                             <Select.Option value="elective2">Maths, Physics, Chemistry, Computer Science</Select.Option>
                                             <Select.Option value="elective3">Accountancy, Business Studies, Economics, Computer Science</Select.Option>
@@ -171,11 +168,11 @@ export default class MainForm extends React.Component<{}, { current: any, firstS
                                     </Form.Item>
 
                                 </Col>
-                                )}
+                             
                             </Row>
                             <Row>
                                 <Col span={12} style={style}>
-                                    <Form.Item name={['user', 'tcertificate']} label="Transfer Certificate" rules={[{ required: false }]}>
+                                    <Form.Item name={['user', 'tcertificate']} initialValue='' label="Transfer Certificate" rules={[{ required: false }]}>
                                         <Select>
                                             <Select.Option value="available">Available</Select.Option>
                                             <Select.Option value="notavailable">Not available</Select.Option>
@@ -183,7 +180,7 @@ export default class MainForm extends React.Component<{}, { current: any, firstS
                                     </Form.Item>
                                 </Col>
                                 <Col span={12} style={style}>
-                                    <Form.Item name={['user', 'board']} label="Name of Board last studied" rules={[{ required: false }]}>
+                                    <Form.Item name={['user', 'board']} initialValue='' label="Name of Board last studied" rules={[{ required: false }]}>
                                         <Select>
                                             <Select.Option value="cbse">CBSE</Select.Option>
                                             <Select.Option value="stateboard">State Board</Select.Option>
@@ -203,12 +200,12 @@ export default class MainForm extends React.Component<{}, { current: any, firstS
                             <Divider>Enter Parent Details - Father </Divider>
                             <Row>
                                 <Col span={12} style={style}>
-                                    <Form.Item name={['user', 'fathersname']} label="Father's Name" rules={[{ required: false }]}>
+                                    <Form.Item name={['user', 'fathersname']} initialValue='' label="Father's Name" rules={[{ required: false }]}>
                                         <Input />
                                     </Form.Item>
                                 </Col>
                                 <Col span={12} style={style}>
-                                    <Form.Item name={['user', 'fathersqualification']} label="Fathers Qualification" rules={[{ required: false }]}>
+                                    <Form.Item name={['user', 'fathersqualification']} initialValue=''  label="Fathers Qualification" rules={[{ required: false }]}>
                                         <Input />
                                     </Form.Item>
                                 </Col>
@@ -216,7 +213,7 @@ export default class MainForm extends React.Component<{}, { current: any, firstS
 
                             <Row>
                                 <Col span={12} style={style}>
-                                    <Form.Item name={['user', 'fathersoccupation']} label="Occupation" rules={[{ required: false }]}>
+                                    <Form.Item name={['user', 'fathersoccupation']} initialValue='' label="Occupation" rules={[{ required: false }]}>
                                         <Select>
                                             <Select.Option value="professional">Professional</Select.Option>
                                             <Select.Option value="service">Service</Select.Option>
@@ -227,7 +224,7 @@ export default class MainForm extends React.Component<{}, { current: any, firstS
                                 </Col>
 
                                 <Col span={12} style={style}>
-                                    <Form.Item name={['user', 'fathersincome']} label="Approximate Income" rules={[{ required: false }]} >
+                                    <Form.Item name={['user', 'fathersincome']}  initialValue='' label="Approximate Income" rules={[{ required: false }]} >
                                         <Input />
                                     </Form.Item>
                                 </Col>
@@ -237,7 +234,7 @@ export default class MainForm extends React.Component<{}, { current: any, firstS
                             <Row>
                                 <Col span={24} style={style}>
 
-                                    <Form.Item name={['user', 'fathersofficeaddress']} label="Designation & Office Address" extra={'Kindly enter full address with pin code'} rules={[{ required: false }]}>
+                                    <Form.Item name={['user', 'fathersofficeaddress']} initialValue='' label="Designation & Office Address" extra={'Kindly enter full address with pin code'} rules={[{ required: false }]}>
                                         <Input.TextArea />
                                     </Form.Item>
                                 </Col>
@@ -246,12 +243,12 @@ export default class MainForm extends React.Component<{}, { current: any, firstS
                             <Row>
                                 <Col span={12} style={style}>
 
-                                    <Form.Item name={['user', 'fathersmobile']} label="Mobile Number" extra={'Kindly enter with caution'}  rules={[{ required: false }]}>
+                                    <Form.Item name={['user', 'fathersmobile']} initialValue='' label="Mobile Number" extra={'Kindly enter with caution'}  rules={[{ required: false }]}>
                                         <Input />
                                     </Form.Item>
                                 </Col>
                                 <Col span={12} style={style}>
-                                    <Form.Item name={['user', 'fathersemail']} label="Email ID" rules={[{ required: false, type: "email" }]}>
+                                    <Form.Item name={['user', 'fathersemail']} initialValue='' label="Email ID" rules={[{ required: false, type: "email" }]}>
                                         <Input />
                                     </Form.Item>
                                 </Col>
@@ -269,13 +266,13 @@ export default class MainForm extends React.Component<{}, { current: any, firstS
                             <Row>
                                 <Col span={12} style={style}>
 
-                                    <Form.Item name={['user', 'mothersname']} rules={[{ required: false }]} label="Mother's Name">
+                                    <Form.Item name={['user', 'mothersname']} initialValue='' rules={[{ required: false }]} label="Mother's Name">
                                         <Input />
                                     </Form.Item>
                                 </Col>
                                 <Col span={12} style={style}>
 
-                                    <Form.Item name={['user', 'motherqualification']} label="Mothers Qualification" rules={[{ required: false }]}>
+                                    <Form.Item name={['user', 'motherqualification']} initialValue=''  label="Mothers Qualification" rules={[{ required: false }]}>
                                         <Input />
                                     </Form.Item>
                                 </Col>
@@ -284,7 +281,7 @@ export default class MainForm extends React.Component<{}, { current: any, firstS
 
                             <Row>
                                 <Col span={12} style={style}>
-                                    <Form.Item name={['user', 'mothersoccupation']} label="Occupation">
+                                    <Form.Item name={['user', 'mothersoccupation']} initialValue='' label="Occupation">
                                         <Select>
                                             <Select.Option value="professional">Professional</Select.Option>
                                             <Select.Option value="service">Service</Select.Option>
@@ -295,7 +292,7 @@ export default class MainForm extends React.Component<{}, { current: any, firstS
                                 </Col>
 
                                 <Col span={12} style={style}>
-                                    <Form.Item name={['user', 'mothersincome']} label="Approximate Income" rules={[{ required: false }]}>
+                                    <Form.Item name={['user', 'mothersincome']}  initialValue='' label="Approximate Income" rules={[{ required: false }]}>
                                         <Input />
                                     </Form.Item>
                                 </Col>
@@ -306,7 +303,7 @@ export default class MainForm extends React.Component<{}, { current: any, firstS
                                 
                                 <Col span={24} style={style}>
                                
-                                    <Form.Item name={['user', 'mothersofficeaddress']} label="Designation & Office Address" extra={'Kindly enter full address with pin code'} rules={[{ required: false }]}>
+                                    <Form.Item name={['user', 'mothersofficeaddress']} initialValue='' label="Designation & Office Address" extra={'Kindly enter full address with pin code'} rules={[{ required: false }]}>
                                         <Input.TextArea />
                                     </Form.Item>
                                 </Col>
@@ -315,12 +312,12 @@ export default class MainForm extends React.Component<{}, { current: any, firstS
                             <Row>
                                 <Col span={12} style={style}>
 
-                                    <Form.Item name={['user', 'mothersmobile']} label="Mobile Number" rules={[{ required: false}]}>
+                                    <Form.Item name={['user', 'mothersmobile']} initialValue='' label="Mobile Number" rules={[{ required: false}]}>
                                         <Input />
                                     </Form.Item>
                                 </Col>
                                 <Col span={12} style={style}>
-                                    <Form.Item name={['user', 'mothersemail']} label="Email ID" rules={[{ required: false, type: "email" }]}>
+                                    <Form.Item name={['user', 'mothersemail']} initialValue='' label="Email ID" rules={[{ required: false, type: "email" }]}>
                                         <Input />
                                     </Form.Item>
                                 </Col>
@@ -336,17 +333,17 @@ export default class MainForm extends React.Component<{}, { current: any, firstS
 
                             <Row>
                                 <Col span={8} style={style}>
-                                    <Form.Item name={['user', 'guardianname']} label="Guardian's Name">
+                                    <Form.Item name={['user', 'guardianname']} initialValue='' label="Guardian's Name">
                                         <Input />
                                     </Form.Item>
                                 </Col>
                                 <Col span={8} style={style}>
-                                    <Form.Item name={['user', 'guardianrelationship']} label="Guardian's Relationship">
+                                    <Form.Item name={['user', 'guardianrelationship']} initialValue='' label="Guardian's Relationship">
                                         <Input />
                                     </Form.Item>
                                 </Col>
                                 <Col span={12} style={style}>
-                                    <Form.Item name={['user', 'guardianphonenumber']} label="Guardian Phone Number ">
+                                    <Form.Item name={['user', 'guardianphonenumber']} initialValue='' label="Guardian Phone Number ">
                                         <Input />
                                     </Form.Item>
                                 </Col>
