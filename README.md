@@ -1,4 +1,4 @@
-This project was created for schools anywhere in the world to access admission. A common admission template have been chosen and worked on that. Raise a erquest in favor to add new features
+This project was created for schools anywhere in the world to access admission. A common admission template have been chosen and worked on that. Raise a request in favor to add new features
 
 ### Plans
 
