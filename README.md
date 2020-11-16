@@ -3,5 +3,5 @@ This project was created for schools anywhere in the world to access admission. 
 ### Plans
 
 1) Added common template form
-2) SMS Gateway for confirming once application is received from payment gateway -  TBD
-2) Integrating payment gateway usage - TBD
+2) SMS Gateway for confirming once application is received from payment gateway - Added
+2) Integrating payment gateway usage - Added - Razorpay solution provided
