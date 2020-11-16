@@ -1,4 +1,10 @@
 @import '~antd/dist/antd.css';
+.feeslink {
+  padding: 10px;
+  background: white;
+  border-radius: 5px;
+  border: 1px solid #cecece;
+}
 
 .App {
   text-align: center;
@@ -46,4 +52,8 @@
 
 .contentWithPadding {
   margin: auto 3em;
+}
+
+.ant-modal-close-x {
+  display: none;
 }
